@@ -1,9 +1,9 @@
 === Additional Order Filters for WooCommerce ===
 Tags: woocommerce, woocommerce filters, woocommerce order, filters, order
-Tested up to: 6.5.2
+Tested up to: 6.6.1
 Requires at least: 4.6
 Requires PHP: 7.0
-Stable tag: 1.21
+Stable tag: 1.22
 Requires WooCommerce at least: 3.0
 Contributors: antonbond
 License: GPLv2 or later
@@ -71,6 +71,9 @@ To contact the author by email antonbondarevych.fruitit@gmail.com
 
 
 == Changelog ==
+
+= 1.22 =
+* Fixed vulnerable to Reflected Cross-Site Scripting
 
 = 1.21 =
 * Fixed a bug with getting the current admin page
