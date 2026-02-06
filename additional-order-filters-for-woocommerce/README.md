@@ -1,9 +1,9 @@
 === Additional Order Filters for WooCommerce ===
 Tags: woocommerce, woocommerce filters, woocommerce order, filters, order
-Tested up to: 6.8.2
+Tested up to: 6.9
 Requires at least: 4.6
 Requires PHP: 7.0
-Stable tag: 1.23
+Stable tag: 1.24
 Requires WooCommerce at least: 3.0
 Contributors: antonbond
 License: GPLv2 or later
@@ -64,13 +64,37 @@ Try to refine your search. Fill in other fields, don't use part of the value.
 
 = Plugin doesn't has the filter which I need =
 
-Sorry for that. The author has collected the most frequently used filters. You can try to contact the author and ask to add a filter.
+Sorry about that. The author has included only the most commonly used filters. You could try contacting the author and asking to add a filter. Alternatively, you can try creating your own custom filter.
+
+= Can I customize how the custom filter input field is rendered? =
+
+Yes. Since version 1.24 the plugin provides the `woaf_custom_filter_input` filter hook.
+
+This filter allows you to fully customize the HTML output of any user-defined filter field.  
+Example usage:
+
+add_filter( 'woaf_custom_filter_input', function( $html, $filter, $value, $count ) {
+// Example: replace text input with a select dropdown
+if ( $filter['filter-field'] === 'my_custom_meta' ) {
+$html = '<select name="my_custom_meta" id="user-filter-my_custom_meta-' . $count . '">
+
+<option value="">Any</option>
+<option value="A" ' . selected( $value, 'A', false ) . '>A</option>
+<option value="B" ' . selected( $value, 'B', false ) . '>B</option>
+</select>';
+}
+return $html;
+}, 10, 4 );
 
 = How I can contact the author of plugin? =
 
 To contact the author by email antonbondarevych.fruitit@gmail.com
 
 == Changelog ==
+
+= 1.24 =
+
+- Added woaf_custom_filter_input filter
 
 = 1.23 =
 

@@ -2,7 +2,7 @@
 /*
 	Plugin Name: Additional Order Filters for WooCommerce
 	Description: Adds additional order filters for WooCommerce
-	Version: 1.23
+	Version: 1.24
 	Requires at least: 6.2
 	Requires PHP: 7.0
 	Author: Anton Bond
@@ -46,7 +46,6 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 		require_once( plugin_dir_path( __FILE__ ) . 'includes/class-waof-default-filters-hpos-storage.php' );
 	else
 		require_once( plugin_dir_path( __FILE__ ) . 'includes/class-waof-default-filters.php' );
-	
 
 } else {
 	add_action( 'admin_notices', 'woaf_woocoommerce_deactivated' );

@@ -255,7 +255,19 @@ class AOF_Woo_Additional_Order_Default_Filters {
 							$output .= '<div class="order_block_wrapper">';
 								$filter_search = (isset( $_GET[$filter['filter-field']] )) ? sanitize_text_field($_GET[$filter['filter-field']]) : '';
 							$output .= '<label for="user-filter-'.$filter['filter-field'].'-'.$count.'">'.$filter["filter-name"].'</label>';
-							$output .= '<input type="text" value="'.$filter_search.'" name="'.$filter['filter-field'].'" id="user-filter-'.$filter['filter-field'].'-'.$count.'">';
+
+							$input_html = '<input type="text" value="'.$filter_search.'" name="'.$filter['filter-field'].'" id="user-filter-'.$filter['filter-field'].'-'.$count.'">';
+
+							$input_html = apply_filters(
+								'woaf_custom_filter_input',
+								$input_html,
+								$filter,
+								$filter_search,
+								$count
+							);
+
+							$output .= $input_html;
+
 							$output .= '</div>';
 
 							$count++;
